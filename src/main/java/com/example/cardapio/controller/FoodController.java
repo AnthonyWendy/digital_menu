@@ -16,14 +16,13 @@ public class FoodController {
     @Autowired
     private FoodRepository repository;
 
-    @CrossOrigin(origins = "*", allowCredentials = "*")
+
     @GetMapping
     public List<FoodResponseDto> getAll(){
         List<FoodResponseDto> foodList = repository.findAll().stream().map(FoodResponseDto::new).toList();
         return foodList;
     }
 
-    @CrossOrigin(origins = "*", allowCredentials = "*")
     @PostMapping
     public void saveFood(@RequestBody FoodRequestDto data){
         Food food  = new Food(data);

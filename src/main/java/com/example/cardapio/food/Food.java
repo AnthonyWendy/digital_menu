@@ -12,11 +12,11 @@ import lombok.*;
 public class Food {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
     private String image;
-    private Integer price;
+    private float price;
 
     public Food(FoodRequestDto data){
         this.title = data.title();
