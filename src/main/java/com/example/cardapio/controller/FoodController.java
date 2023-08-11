@@ -17,12 +17,14 @@ public class FoodController {
     private FoodRepository repository;
 
 
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @GetMapping
     public List<FoodResponseDto> getAll(){
         List<FoodResponseDto> foodList = repository.findAll().stream().map(FoodResponseDto::new).toList();
         return foodList;
     }
 
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @PostMapping
     public void saveFood(@RequestBody FoodRequestDto data){
         Food food  = new Food(data);
